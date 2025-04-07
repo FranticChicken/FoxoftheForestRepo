@@ -51,7 +51,10 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+        if (IsGrounded())
+        {
+            rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+        }
 
     }
 
@@ -59,7 +62,7 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         bool grounded;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
         grounded = hit.collider != null;
 
         return grounded;
