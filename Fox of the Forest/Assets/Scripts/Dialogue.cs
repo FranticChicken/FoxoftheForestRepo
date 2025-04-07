@@ -82,12 +82,12 @@ public class DialogueManager : MonoBehaviour
 
     void Skip2(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            dialogueBackground.gameObject.SetActive(false);
+        
+        
+         dialogueBackground.gameObject.SetActive(false);
 
-            dialogueOver = true;
-        }
+         dialogueOver = true;
+        
     }
 
     void Update()
