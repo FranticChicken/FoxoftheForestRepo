@@ -5531,6 +5531,9 @@ MonoBehaviour:
   - The goal of the first mission is to locate the 3 electrical boxes and damage
     them by interacting with them 3 times each. Enemy humans will attack the fox
     if the fox gets too close to them.
+  - As the fox, you can jump on top of different things such as tree stumps, roofs,
+    pipes, and more.
+  - Head to the end of the map after you have destroyed the three electrical boxes.
   - Controls include 'A' and 'D' to move left and right, SPACEBAR to jump, SHIFT
     to run, CONTROL to crouch, and 'E' to interact with things.
   textSpeed: 0.001
