@@ -9,10 +9,12 @@ public class InputManager : MonoBehaviour
 
     //dialogue stuff
     public DialogueManager dialogueScript;
+    
 
     private void Start()
     {
         player = GetComponent<PlayerController>();
+        
     }
 
     private void OnMove(InputValue moveValue)
@@ -23,10 +25,25 @@ public class InputManager : MonoBehaviour
             player.Move(inputVector);
         }
     }
+
     private void OnInteract(InputValue interactValue)
     {
 
+        if (player.canInteractEB1 == true)
+        {
+            GameObject.FindGameObjectWithTag("Electrical Box").GetComponent<ElectricalBox>().health -= 1;
+        }
+        else if (player.canInteractEB2 == true)
+        {
+            GameObject.FindGameObjectWithTag("Electrical Box 2").GetComponent<ElectricalBox>().health -= 1;
+        }
+        else if (player.canInteractEB3 == true)
+        {
+            GameObject.FindGameObjectWithTag("Electrical Box 3").GetComponent<ElectricalBox>().health -= 1;
+        }
+        
     }
+
     private void OnJump(InputValue jumpValue)
     {
         if (dialogueScript.dialogueOver == true)

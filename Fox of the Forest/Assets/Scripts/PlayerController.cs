@@ -20,10 +20,22 @@ public class PlayerController : MonoBehaviour
     private Vector2 targetVelocity = new Vector2(0, 0);
     private float currentSpeed;
 
+    //interaction stuff
+    [HideInInspector]
+    public bool canInteractEB1;
+    [HideInInspector]
+    public bool canInteractEB2;
+    [HideInInspector]
+    public bool canInteractEB3;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentSpeed = moveSpeed;
+        canInteractEB1 = false;
+        canInteractEB2 = false;
+        canInteractEB3 = false;
     }
 
     private void Update()
@@ -83,4 +95,40 @@ public class PlayerController : MonoBehaviour
         crouchSprite.SetActive(false);
         currentSpeed = moveSpeed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Electrical Box"))
+        {
+            canInteractEB1 = true;  
+        }
+        if (collision.CompareTag("Electrical Box 2"))
+        {
+            canInteractEB2 = true;
+        }
+        if (collision.CompareTag("Electrical Box 3"))
+        {
+            canInteractEB3 = true;
+
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Electrical Box"))
+        {
+            canInteractEB1 = false;
+        }
+        if (collision.CompareTag("Electrical Box 2"))
+        {
+            canInteractEB2 = false;
+        }
+        if (collision.CompareTag("Electrical Box 3"))
+        {
+            canInteractEB1 = false;
+        }
+    }
+
+    
 }

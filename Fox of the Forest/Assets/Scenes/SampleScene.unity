@@ -867,6 +867,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   crouchSprite: {fileID: 314386164}
+  canInteractEB1: 0
+  canInteractEB2: 0
+  canInteractEB3: 0
 --- !u!114 &69973206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2965,9 +2968,10 @@ GameObject:
   - component: {fileID: 398407726}
   - component: {fileID: 398407725}
   - component: {fileID: 398407724}
+  - component: {fileID: 398407727}
   m_Layer: 0
   m_Name: ElectricalBox (2)
-  m_TagString: Untagged
+  m_TagString: Electrical Box 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3084,6 +3088,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &398407727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398407723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5defebe62624d494cb89a767fd5ed63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &454829240
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,9 +3735,10 @@ GameObject:
   - component: {fileID: 608817062}
   - component: {fileID: 608817061}
   - component: {fileID: 608817060}
+  - component: {fileID: 608817063}
   m_Layer: 0
   m_Name: ElectricalBox
-  m_TagString: Untagged
+  m_TagString: Electrical Box 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3837,6 +3855,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &608817063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608817059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5defebe62624d494cb89a767fd5ed63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &619164849
 GameObject:
   m_ObjectHideFlags: 0
@@ -12637,9 +12668,10 @@ GameObject:
   - component: {fileID: 2059457059}
   - component: {fileID: 2059457058}
   - component: {fileID: 2059457057}
+  - component: {fileID: 2059457060}
   m_Layer: 0
   m_Name: ElectricalBox (1)
-  m_TagString: Untagged
+  m_TagString: Electrical Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12750,12 +12782,25 @@ Transform:
   m_GameObject: {fileID: 2059457056}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.6, y: 13.72, z: 0}
+  m_LocalPosition: {x: 59.15, y: 9.6, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2059457060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059457056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5defebe62624d494cb89a767fd5ed63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &2059943277
 GameObject:
   m_ObjectHideFlags: 0
