@@ -47,8 +47,18 @@ public class PlayerController : MonoBehaviour
 
     public void Move(Vector2 movement)
     {
-
+        
         moveVector = movement;
+        /*
+        if (movement.x < 0)
+        {
+            transform.localScale = new Vector3(-0.1f, transform.localScale.z, transform.localScale.z);
+        }
+        else if(movement.x > 0)
+        {
+            transform.localScale = new Vector3(0.1f, transform.localScale.z, transform.localScale.z);
+        }
+        */
     }
 
     public void Sprint()
