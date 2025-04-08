@@ -28,6 +28,14 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool canInteractEB3;
 
+    //win condition
+    [HideInInspector]
+    public bool gameWon;
+    [HideInInspector]
+    public int electricBoxesTampered;
+
+    
+
 
     private void Start()
     {
@@ -36,6 +44,8 @@ public class PlayerController : MonoBehaviour
         canInteractEB1 = false;
         canInteractEB2 = false;
         canInteractEB3 = false;
+        gameWon = false;
+        electricBoxesTampered = 0;
     }
 
     private void Update()
@@ -93,16 +103,16 @@ public class PlayerController : MonoBehaviour
     public void Crouch()
     {
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 2, transform.localScale.z);
-        GetComponent<SpriteRenderer>().enabled = false;
-        crouchSprite.SetActive(true);
+        //GetComponent<SpriteRenderer>().enabled = false;
+        //crouchSprite.SetActive(true);
         currentSpeed = crouchSpeed;
     }
 
     public void UnCrouch()
     {
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 2, transform.localScale.z);
-        GetComponent<SpriteRenderer>().enabled = true;
-        crouchSprite.SetActive(false);
+        ///GetComponent<SpriteRenderer>().enabled = true;
+        //crouchSprite.SetActive(false);
         currentSpeed = moveSpeed;
     }
 
@@ -120,6 +130,15 @@ public class PlayerController : MonoBehaviour
         {
             canInteractEB3 = true;
 
+        }
+        if (collision.CompareTag("End"))
+        {
+            if (electricBoxesTampered >= 3)
+            {
+
+
+                gameWon = true;
+            }
         }
 
     }

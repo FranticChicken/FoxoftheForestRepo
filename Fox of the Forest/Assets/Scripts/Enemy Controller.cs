@@ -13,6 +13,10 @@ public class EnemyController : MonoBehaviour
     public Transform player;
     [SerializeField] private LayerMask groundLayer;
     float offset = 57;
+    public GameObject angrySprite;
+    public GameObject neutralSprite;
+    [HideInInspector]
+    public bool shouldBeSad;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,8 @@ public class EnemyController : MonoBehaviour
         targetPoint = patrolPt1;
         sprites = transform.Find("Sprites").GetComponent<Transform>();
         fOVScript = sprites.transform.Find("FOV").GetComponent<EnemyFOV>();
+        neutralSprite.SetActive(true);
+        shouldBeSad = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,6 +67,10 @@ public class EnemyController : MonoBehaviour
 
             // Optional: Flip enemy to face movement direction
             FlipTowards(player.position);
+
+            neutralSprite.SetActive(false);
+            angrySprite.SetActive(true);
+            shouldBeSad = true;
         }
         else
         {
@@ -75,6 +85,9 @@ public class EnemyController : MonoBehaviour
 
             // Optional: Flip enemy to face movement direction
             FlipTowards(targetPoint.position);
+            neutralSprite.SetActive(true);
+            angrySprite.SetActive(false);
+            shouldBeSad = false;
         }
         
         Debug.Log(IsGrounded());

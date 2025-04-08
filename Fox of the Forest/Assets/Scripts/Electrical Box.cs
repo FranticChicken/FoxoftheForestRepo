@@ -6,6 +6,7 @@ public class ElectricalBox : MonoBehaviour
 {
     [HideInInspector]
     public int health;
+    public PlayerController playerControllerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class ElectricalBox : MonoBehaviour
     {
         if(health <= 0)
         {
+            playerControllerScript.electricBoxesTampered += 1;
             Destroy(gameObject);
         }
     }

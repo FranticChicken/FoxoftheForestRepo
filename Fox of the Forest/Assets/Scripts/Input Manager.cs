@@ -9,11 +9,48 @@ public class InputManager : MonoBehaviour
 
     //dialogue stuff
     public DialogueManager dialogueScript;
-    
+
+    public EnemyController enemyCScript;
+    public EnemyController enemyCScript2;
+    public EnemyController enemyCScript3;
+    public EnemyController enemyCScript4;
+
+    public GameObject crouchNeutral;
+    public GameObject crouchSad;
+    public GameObject standNeutral;
+    public GameObject standSad;
+
+    bool isStanding;
+
+
 
     private void Start()
     {
         player = GetComponent<PlayerController>();
+        standNeutral.SetActive(true);
+        isStanding = true;
+    }
+
+    private void Update()
+    {
+        if (isStanding)
+        {
+            if (enemyCScript4.shouldBeSad == true || enemyCScript3.shouldBeSad == true || enemyCScript2.shouldBeSad == true || enemyCScript.shouldBeSad == true)
+            {
+                crouchSad.SetActive(false);
+                crouchNeutral.SetActive(false);
+                standNeutral.SetActive(false);
+                standSad.SetActive(true);
+            }
+            else
+            {
+                crouchNeutral.SetActive(false);
+                crouchSad.SetActive(false);
+                standNeutral.SetActive(true);
+                standSad.SetActive(false);
+
+            }
+        }
         
     }
 
@@ -67,10 +104,30 @@ public class InputManager : MonoBehaviour
         if (crouchValue.isPressed && dialogueScript.dialogueOver == true)
         {
             player.Crouch();
+            isStanding = false;
+            if(enemyCScript.shouldBeSad == true || enemyCScript2.shouldBeSad == true || enemyCScript3.shouldBeSad == true || enemyCScript4.shouldBeSad == true)
+            {
+                crouchSad.SetActive(true);
+                crouchNeutral.SetActive(false);
+                standNeutral.SetActive(false);
+                standSad.SetActive(false);
+            }
+            else
+            {
+                crouchNeutral.SetActive(true);
+                crouchSad.SetActive(false);
+                standNeutral.SetActive(false);
+                standSad.SetActive(false);
+                
+            }
+           
+
         }
         else if(dialogueScript.dialogueOver == true)
         {
             player.UnCrouch();
+            isStanding = true;
+            
         }
     }
 }

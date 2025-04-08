@@ -8,7 +8,8 @@ public class PlayerHealth : MonoBehaviour
     float maxHealth; 
     [HideInInspector]
     public float playerHealth;
-    bool gameOver;
+    [HideInInspector]
+    public bool gameOver;
     public Image healthBar; 
 
     // Start is called before the first frame update
